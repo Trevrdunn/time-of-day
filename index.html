@@ -61,7 +61,8 @@
 	<h2 id="greeting">Greeting goes here</h2>
     <main>
 	 <header><h3>A JavaScript Example by Trevor Dunn</h3></header>
-	 <p>Create a web page that uses JavaScript to determine the current hour, and presents a different image, custom message, and color based on each of the following times of day</p>
+	 <p>This is a web page that uses JavaScript to determine the current hour, and presents a different image, custom message, and color based on each of the following times of day:
+	</p>
 
 	 <p>
 		 <ul>
@@ -88,20 +89,38 @@
 		let myPic = '';
 
 
-		let myHour = myDate.getFullYear();
+		let myHour = myDate.getHours();
 
 		//LINE BELOW FOR TESTING - REMOVE BEFORE PLACING IN SERVICE
-		myHour = 13;
+		//myHour = 3;
+
+		console.log(myHour);
 		
-		if(myHour > 12){
+		if(myHour >= 5 && myHour < 12){
 			myText = "Good Morning!";
-		}else{
+			myColor = "orange";
+			myPic = "images/morning.jpg";
+
+
+		} else if(myHour >= 12 && myHour < 18){
 			myText = "Good Afternoon";
+			myColor = "green";
+			myPic = "images/afternoon.jpg";
+
+		} else if(myHour >= 18 && myHour < 23){
+			myText = "Good Evening";
+			myColor = "blue";
+			myPic = "images/evening.jpg";
+
+		}else{
+			myText = "Good Night";
+			myColor = "purple";
+			myPic = "images/night.jpg";
 		}
 		//console.log(myText);
 		document.getElementById('greeting').innerHTML = myText;
 		document.getElementById('greeting').style.color = myColor;
-		document.getElementById('html').style.backgroundColor = myColor;
+		document.querySelector("html").style.backgroundColor = myColor;
 		document.getElementById('pic').src = myPic;
 
 		let myYear = myDate.getFullYear();
